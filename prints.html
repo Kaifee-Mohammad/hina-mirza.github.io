@@ -1,0 +1,45 @@
+---
+layout: default
+title: Art Prints
+permalink: /prints/
+---
+<div class="prints-page">
+  <header class="page-header compact">
+    <h1>Art Prints</h1>
+    <p>High-quality botanical art prints available for purchase</p>
+  </header>
+
+  <!-- Prints Grid - Compact -->
+  <div class="gallery-compact">
+    {% for print in site.prints %}
+      <div class="gallery-item">
+        <a href="#" class="lightbox-trigger" data-image="{{ print.image | relative_url }}" data-title="{{ print.title }}" data-description="{{ print.content | strip_html }}" data-price="{{ print.price }}" data-sizes="{{ print.sizes }}">
+          {% if print.image %}
+            <img src="{{ print.image | relative_url }}" alt="{{ print.title }}" loading="lazy">
+          {% endif %}
+          <div class="overlay">
+            <h3>{{ print.title }}</h3>
+            {% if print.price %}
+              <p class="price">{{ print.price }}</p>
+            {% endif %}
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox">
+  <span class="lightbox-close">&times;</span>
+  <div class="lightbox-content">
+    <img id="lightbox-image" src="" alt="">
+    <div class="lightbox-info">
+      <h2 id="lightbox-title"></h2>
+      <p id="lightbox-description"></p>
+      <p id="lightbox-sizes"></p>
+      <p id="lightbox-price" class="price"></p>
+      <a href="{{ '/contact/' | relative_url }}" class="button primary">Inquire About This Print</a>
+    </div>
+  </div>
+</div>

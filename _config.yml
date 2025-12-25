@@ -15,7 +15,6 @@ author:
 
 # Build settings
 markdown: kramdown
-theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
@@ -26,9 +25,9 @@ collections:
   portfolio:
     output: true
     permalink: /portfolio/:title/
-  products:
+  prints:
     output: true
-    permalink: /shop/:title/
+    permalink: /prints/:title/
 
 # Defaults
 defaults:
@@ -39,9 +38,9 @@ defaults:
       layout: "portfolio-item"
   - scope:
       path: ""
-      type: "products"
+      type: "prints"
     values:
-      layout: "product-item"
+      layout: "print-item"
   - scope:
       path: ""
       type: "pages"

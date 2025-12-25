@@ -1,4 +1,18 @@
 @media (max-width: $tablet) {
+  .gallery-compact {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .lightbox .lightbox-content {
+    flex-direction: column;
+
+    img {
+      flex: 1;
+      max-width: 100%;
+      max-height: 50vh;
+    }
+  }
+
   .site-header {
     .nav-toggle-label {
       display: block;
@@ -65,16 +79,6 @@
     }
   }
 
-  .portfolio-grid,
-  .product-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: $spacing-sm;
-  }
-
-  .contact-page .contact-content {
-    grid-template-columns: 1fr;
-  }
-
   .page-header h1 {
     font-size: 2rem;
   }
@@ -85,37 +89,46 @@
 }
 
 @media (max-width: $mobile) {
-  .portfolio-grid,
-  .product-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .gallery-compact {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 4px;
   }
 
-  .hero {
-    padding: $spacing-lg 0;
+  .hero.compact {
+    padding: $spacing-sm 0;
 
     .tagline {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       letter-spacing: 2px;
     }
 
     .hero-description {
-      font-size: 1rem;
+      font-size: 0.9rem;
     }
   }
 
-  .page-header {
-    padding: $spacing-md 0;
+  .page-header.compact {
+    padding: $spacing-sm 0;
 
     h1 {
-      font-size: 1.75rem;
+      font-size: 1.5rem;
     }
   }
 
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.5rem; }
-  h3 { font-size: 1.25rem; }
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.35rem; }
+  h3 { font-size: 1.15rem; }
 
   .footer-content {
     grid-template-columns: 1fr;
+  }
+
+  .lightbox {
+    padding: $spacing-sm;
+  }
+
+  .lightbox .lightbox-close {
+    font-size: 2rem;
+    right: $spacing-md;
   }
 }

@@ -4,34 +4,48 @@ title: Portfolio
 permalink: /portfolio/
 ---
 <div class="portfolio-page">
-  <header class="page-header">
+  <header class="page-header compact">
     <h1>Portfolio</h1>
-    <p>Explore our collection of botanical artwork</p>
+
+    <!-- Category Filter - Compact -->
+    <div class="filter-controls compact">
+      <button class="filter-btn active" data-category="all">All</button>
+      <button class="filter-btn" data-category="fabric">Fabric</button>
+      <button class="filter-btn" data-category="wallpaper">Wallpaper</button>
+      <button class="filter-btn" data-category="paintings">Paintings</button>
+      <button class="filter-btn" data-category="home-goods">Home Goods</button>
+    </div>
   </header>
 
-  <!-- Category Filter -->
-  <div class="filter-controls">
-    <button class="filter-btn active" data-category="all">All</button>
-    <button class="filter-btn" data-category="fabric">Fabric</button>
-    <button class="filter-btn" data-category="wallpaper">Wallpaper</button>
-    <button class="filter-btn" data-category="paintings">Paintings</button>
-    <button class="filter-btn" data-category="home-goods">Home Goods</button>
-  </div>
-
-  <!-- Portfolio Grid -->
-  <div class="portfolio-grid">
+  <!-- Portfolio Grid - Compact -->
+  <div class="gallery-compact">
     {% for item in site.portfolio %}
-      <div class="portfolio-card" data-category="{{ item.category | slugify }}">
-        <a href="{{ item.url | relative_url }}">
+      <div class="gallery-item" data-category="{{ item.category | slugify }}">
+        <a href="#" class="lightbox-trigger" data-image="{{ item.image | relative_url }}" data-title="{{ item.title }}" data-description="{{ item.content | strip_html }}" data-dimensions="{{ item.dimensions }}" data-materials="{{ item.materials }}">
           {% if item.image %}
             <img src="{{ item.image | relative_url }}" alt="{{ item.title }}" loading="lazy">
           {% endif %}
-          <div class="card-content">
+          <div class="overlay">
             <h3>{{ item.title }}</h3>
             <p class="category">{{ item.category }}</p>
           </div>
         </a>
       </div>
     {% endfor %}
+  </div>
+</div>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox">
+  <span class="lightbox-close">&times;</span>
+  <div class="lightbox-content">
+    <img id="lightbox-image" src="" alt="">
+    <div class="lightbox-info">
+      <h2 id="lightbox-title"></h2>
+      <p id="lightbox-description"></p>
+      <p id="lightbox-dimensions"></p>
+      <p id="lightbox-materials"></p>
+      <a href="{{ '/contact/' | relative_url }}" class="button primary">Inquire</a>
+    </div>
   </div>
 </div>

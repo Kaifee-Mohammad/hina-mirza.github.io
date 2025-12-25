@@ -1,0 +1,37 @@
+---
+layout: default
+---
+<div class="print-item">
+  <div class="item-content">
+    <div class="item-image">
+      {% if page.image %}
+        <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+      {% endif %}
+    </div>
+
+    <div class="item-details">
+      <h1>{{ page.title }}</h1>
+
+      {% if page.price %}
+        <p class="price-large">{{ page.price }}</p>
+      {% endif %}
+
+      <div class="description">
+        {{ content }}
+      </div>
+
+      {% if page.sizes %}
+        <p><strong>Available Sizes:</strong> {{ page.sizes }}</p>
+      {% endif %}
+
+      {% if page.material %}
+        <p><strong>Material:</strong> {{ page.material }}</p>
+      {% endif %}
+
+      <div class="actions">
+        <a href="{{ '/contact/?item=' | append: page.title | relative_url }}" class="button primary large">Inquire About This Print</a>
+        <a href="{{ '/prints/' | relative_url }}" class="button">← Back to Prints</a>
+      </div>
+    </div>
+  </div>
+</div>

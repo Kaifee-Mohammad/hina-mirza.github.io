@@ -1,229 +1,164 @@
-.hero {
-  background-color: $light-gray;
-  padding: $spacing-xl 0;
-  text-align: center;
-  margin-bottom: $spacing-xl;
-
-  .hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 $spacing-md;
-  }
-
-  .tagline {
-    font-size: 2.5rem;
-    letter-spacing: 3px;
-    margin-bottom: $spacing-md;
-  }
-
-  .hero-description {
-    font-size: 1.25rem;
-    font-weight: 300;
-  }
+// Compact layout - maximize space
+.hero.compact {
+  padding: $spacing-md 0;
+  margin-bottom: $spacing-md;
 }
 
-.portfolio-grid,
-.product-grid {
+.page-header.compact {
+  padding: $spacing-md 0;
+}
+
+// Compact Gallery Grid - Small Thumbnails
+.gallery-compact {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: $spacing-md;
-  max-width: 1200px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: $spacing-xs;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 $spacing-md $spacing-xl;
+  padding: 0 $spacing-sm $spacing-md;
 }
 
-.portfolio-card,
-.product-card {
-  background-color: $background-color;
-  border: 1px solid $border-color;
+.gallery-item {
+  position: relative;
   overflow: hidden;
+  aspect-ratio: 1;
+  cursor: pointer;
   transition: $transition;
 
   &:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transform: translateY(-4px);
+    transform: scale(1.05);
+    z-index: 10;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+    .overlay {
+      opacity: 1;
+    }
   }
 
   img {
     width: 100%;
-    height: 300px;
+    height: 100%;
     object-fit: cover;
+    display: block;
   }
 
-  .card-content {
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
     padding: $spacing-sm;
+    opacity: 0;
+    transition: $transition;
 
     h3 {
-      font-size: 1.125rem;
-      margin-bottom: $spacing-xs;
-    }
-
-    .category {
       font-size: 0.875rem;
-      color: $primary-color;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      color: white;
+      margin: 0;
     }
 
-    .price {
-      font-weight: 600;
-      color: $text-color;
-      margin-top: $spacing-xs;
+    .category, .price {
+      font-size: 0.75rem;
+      color: $primary-color;
+      margin: 0;
     }
   }
 }
 
-.filter-controls {
-  display: flex;
+// Lightbox Modal
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
   justify-content: center;
-  gap: $spacing-sm;
-  margin-bottom: $spacing-lg;
-  flex-wrap: wrap;
+  align-items: center;
+  padding: $spacing-md;
 
-  .filter-btn {
-    padding: $spacing-xs $spacing-md;
-    background-color: transparent;
-    border: 2px solid $border-color;
-    color: $text-color;
-    font-family: $font-body;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.875rem;
+  .lightbox-close {
+    position: absolute;
+    top: $spacing-md;
+    right: $spacing-lg;
+    color: white;
+    font-size: 3rem;
+    font-weight: 300;
     cursor: pointer;
+    z-index: 1001;
     transition: $transition;
 
-    &:hover,
-    &.active {
-      background-color: $text-color;
-      color: $background-color;
-      border-color: $text-color;
+    &:hover {
+      color: $primary-color;
     }
   }
+
+  .lightbox-content {
+    display: flex;
+    gap: $spacing-lg;
+    max-width: 1200px;
+    width: 100%;
+    max-height: 90vh;
+    background-color: white;
+    padding: $spacing-lg;
+    border-radius: 4px;
+
+    img {
+      flex: 0 0 60%;
+      max-width: 60%;
+      height: auto;
+      max-height: 80vh;
+      object-fit: contain;
+    }
+
+    .lightbox-info {
+      flex: 1;
+      overflow-y: auto;
+
+      h2 {
+        margin-top: 0;
+        margin-bottom: $spacing-md;
+      }
+
+      p {
+        margin-bottom: $spacing-sm;
+      }
+
+      .price {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: $primary-color;
+        margin: $spacing-md 0;
+      }
+
+      .button {
+        margin-top: $spacing-md;
+      }
+    }
+  }
+}
+
+// Compact filters
+.filter-controls.compact {
+  margin-bottom: $spacing-md;
+  gap: $spacing-xs;
+
+  .filter-btn {
+    padding: $spacing-xs $spacing-sm;
+    font-size: 0.8125rem;
+  }
+}
+
+// Minimal spacing adjustments
+.main-gallery {
+  padding: 0;
 }
 
 .portfolio-highlights,
 .instagram-feed,
 .about-preview {
-  max-width: 1200px;
-  margin: 0 auto $spacing-xl;
-  padding: 0 $spacing-md;
-  text-align: center;
-
-  h2 {
-    font-size: 2rem;
-    margin-bottom: $spacing-md;
-  }
-}
-
-.view-all {
-  margin-top: $spacing-lg;
-}
-
-.contact-form {
-  max-width: 600px;
-  margin: 0 auto;
-
-  .form-group {
-    margin-bottom: $spacing-md;
-
-    label {
-      display: block;
-      margin-bottom: $spacing-xs;
-      font-weight: 600;
-    }
-
-    input,
-    textarea,
-    select {
-      width: 100%;
-      padding: $spacing-sm;
-      border: 1px solid $border-color;
-      font-family: $font-body;
-      font-size: 1rem;
-
-      &:focus {
-        outline: none;
-        border-color: $primary-color;
-      }
-    }
-
-    textarea {
-      resize: vertical;
-    }
-  }
-}
-
-.portfolio-item,
-.product-item {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: $spacing-lg $spacing-md;
-
-  .portfolio-header,
-  .product-header {
-    text-align: center;
-    margin-bottom: $spacing-lg;
-
-    .category {
-      color: $primary-color;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 0.875rem;
-      font-weight: 600;
-    }
-
-    .price {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-top: $spacing-sm;
-    }
-  }
-
-  .portfolio-images,
-  .product-images {
-    margin-bottom: $spacing-lg;
-
-    .featured-image {
-      width: 100%;
-      margin-bottom: $spacing-md;
-    }
-
-    .image-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: $spacing-sm;
-
-      img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-      }
-    }
-  }
-
-  .portfolio-details,
-  .product-details {
-    .metadata,
-    .product-info {
-      background-color: $light-gray;
-      padding: $spacing-md;
-      margin-top: $spacing-md;
-
-      p {
-        margin-bottom: $spacing-xs;
-      }
-    }
-
-    .product-actions {
-      margin-top: $spacing-lg;
-      text-align: center;
-    }
-  }
-
-  .portfolio-nav,
-  .product-nav {
-    margin-top: $spacing-lg;
-    text-align: center;
-  }
+  display: none; // Hide on homepage for more gallery space
 }

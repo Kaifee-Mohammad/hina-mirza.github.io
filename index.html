@@ -2,63 +2,58 @@
 layout: default
 ---
 <div class="home">
-  <!-- Hero Section -->
-  <section class="hero">
+  <!-- Hero Section - Compact -->
+  <section class="hero compact">
     <div class="hero-content">
       <h1 class="tagline">ELEGANT . SOFT . PAINTERLY</h1>
-      <p class="hero-description">Breathe into Nature with Hina's organic, expressive floral and botanical artwork</p>
+      <p class="hero-description">Botanical Artwork & Art Prints</p>
     </div>
   </section>
 
-  <!-- Portfolio Highlights -->
-  <section class="portfolio-highlights">
-    <h2>Featured Work</h2>
-    <div class="portfolio-grid">
-      {% assign featured_items = site.portfolio | where: "featured", true | limit: 6 %}
-      {% if featured_items.size > 0 %}
-        {% for item in featured_items %}
-          <div class="portfolio-card">
-            <a href="{{ item.url | relative_url }}">
-              {% if item.image %}
-                <img src="{{ item.image | relative_url }}" alt="{{ item.title }}">
-              {% endif %}
+  <!-- Portfolio Grid - Maximum space usage -->
+  <section class="main-gallery">
+    <div class="gallery-compact">
+      {% for item in site.portfolio limit: 24 %}
+        <div class="gallery-item" data-category="{{ item.category | slugify }}">
+          <a href="#" class="lightbox-trigger" data-image="{{ item.image | relative_url }}" data-title="{{ item.title }}" data-description="{{ item.content | strip_html | truncate: 200 }}">
+            {% if item.image %}
+              <img src="{{ item.image | relative_url }}" alt="{{ item.title }}" loading="lazy">
+            {% endif %}
+            <div class="overlay">
               <h3>{{ item.title }}</h3>
-              <p class="category">{{ item.category }}</p>
-            </a>
-          </div>
-        {% endfor %}
-      {% else %}
-        <!-- Show all if no featured -->
-        {% for item in site.portfolio limit: 6 %}
-          <div class="portfolio-card">
-            <a href="{{ item.url | relative_url }}">
-              {% if item.image %}
-                <img src="{{ item.image | relative_url }}" alt="{{ item.title }}">
-              {% endif %}
-              <h3>{{ item.title }}</h3>
-              <p class="category">{{ item.category }}</p>
-            </a>
-          </div>
-        {% endfor %}
-      {% endif %}
-    </div>
-    <div class="view-all">
-      <a href="/portfolio/" class="button">View Full Portfolio</a>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+
+      <!-- Show prints too -->
+      {% for print in site.prints limit: 12 %}
+        <div class="gallery-item" data-category="prints">
+          <a href="#" class="lightbox-trigger" data-image="{{ print.image | relative_url }}" data-title="{{ print.title }}" data-description="{{ print.content | strip_html | truncate: 200 }}" data-price="{{ print.price }}">
+            {% if print.image %}
+              <img src="{{ print.image | relative_url }}" alt="{{ print.title }}" loading="lazy">
+            {% endif %}
+            <div class="overlay">
+              <h3>{{ print.title }}</h3>
+              {% if print.price %}<p class="price">{{ print.price }}</p>{% endif %}
+            </div>
+          </a>
+        </div>
+      {% endfor %}
     </div>
   </section>
+</div>
 
-  <!-- Instagram Feed -->
-  <section class="instagram-feed">
-    <h2>Latest from Instagram</h2>
-    <p>Follow <a href="https://instagram.com/hinamirza.art.design" target="_blank">@hinamirza.art.design</a></p>
-    <!-- Instagram embed widget will go here -->
-    <div id="instagram-widget"></div>
-  </section>
-
-  <!-- About Preview -->
-  <section class="about-preview">
-    <h2>About Hina</h2>
-    <p>Creating elegant, soft, painterly botanical artwork that transforms original designs into surface patterns and textile prints.</p>
-    <a href="/about/" class="button">Learn More</a>
-  </section>
+<!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox">
+  <span class="lightbox-close">&times;</span>
+  <div class="lightbox-content">
+    <img id="lightbox-image" src="" alt="">
+    <div class="lightbox-info">
+      <h2 id="lightbox-title"></h2>
+      <p id="lightbox-description"></p>
+      <p id="lightbox-price" class="price"></p>
+      <a href="{{ '/contact/' | relative_url }}" class="button primary">Inquire</a>
+    </div>
+  </div>
 </div>

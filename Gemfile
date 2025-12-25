@@ -2,12 +2,13 @@
 
 source "https://rubygems.org"
 
-gem "jekyll", "~> 4.3"
-gem "minima", "~> 2.5"
+gem "jekyll", "~> 3.9"
 gem "webrick", "~> 1.8"
+gem "jekyll-sass-converter", "~> 1.5"
+gem "kramdown-parser-gfm"
 
 group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.17"
-  gem "jekyll-seo-tag", "~> 2.8"
+  gem "jekyll-feed", "~> 0.15"
+  gem "jekyll-seo-tag", "~> 2.7"
   gem "jekyll-sitemap", "~> 1.4"
 end
