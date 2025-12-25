@@ -1,0 +1,31 @@
+---
+layout: default
+title: Shop
+permalink: /shop/
+---
+<div class="shop-page">
+  <header class="page-header">
+    <h1>Shop</h1>
+    <p>Artwork and design products available for inquiry</p>
+  </header>
+
+  <!-- Product Grid -->
+  <div class="product-grid">
+    {% for product in site.products %}
+      <div class="product-card">
+        <a href="{{ product.url | relative_url }}">
+          {% if product.image %}
+            <img src="{{ product.image | relative_url }}" alt="{{ product.title }}" loading="lazy">
+          {% endif %}
+          <div class="card-content">
+            <h3>{{ product.title }}</h3>
+            {% if product.price %}
+              <p class="price">{{ product.price }}</p>
+            {% endif %}
+            <p class="category">{{ product.category }}</p>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>

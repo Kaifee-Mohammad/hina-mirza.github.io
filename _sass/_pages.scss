@@ -1,0 +1,47 @@
+.contact-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+
+  .contact-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: $spacing-xl;
+    margin-top: $spacing-lg;
+  }
+
+  .contact-info {
+    h3 {
+      margin-bottom: $spacing-md;
+    }
+
+    p {
+      margin-bottom: $spacing-sm;
+    }
+  }
+}
+
+.about-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+
+  .about-intro {
+    margin-bottom: $spacing-lg;
+  }
+
+  .about-body {
+    margin-bottom: $spacing-lg;
+
+    h2 {
+      margin-top: $spacing-lg;
+      margin-bottom: $spacing-md;
+    }
+  }
+
+  .about-social {
+    text-align: center;
+    padding: $spacing-lg 0;
+    border-top: 1px solid $border-color;
+  }
+}

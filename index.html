@@ -1,0 +1,64 @@
+---
+layout: default
+---
+<div class="home">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="tagline">ELEGANT . SOFT . PAINTERLY</h1>
+      <p class="hero-description">Breathe into Nature with Hina's organic, expressive floral and botanical artwork</p>
+    </div>
+  </section>
+
+  <!-- Portfolio Highlights -->
+  <section class="portfolio-highlights">
+    <h2>Featured Work</h2>
+    <div class="portfolio-grid">
+      {% assign featured_items = site.portfolio | where: "featured", true | limit: 6 %}
+      {% if featured_items.size > 0 %}
+        {% for item in featured_items %}
+          <div class="portfolio-card">
+            <a href="{{ item.url | relative_url }}">
+              {% if item.image %}
+                <img src="{{ item.image | relative_url }}" alt="{{ item.title }}">
+              {% endif %}
+              <h3>{{ item.title }}</h3>
+              <p class="category">{{ item.category }}</p>
+            </a>
+          </div>
+        {% endfor %}
+      {% else %}
+        <!-- Show all if no featured -->
+        {% for item in site.portfolio limit: 6 %}
+          <div class="portfolio-card">
+            <a href="{{ item.url | relative_url }}">
+              {% if item.image %}
+                <img src="{{ item.image | relative_url }}" alt="{{ item.title }}">
+              {% endif %}
+              <h3>{{ item.title }}</h3>
+              <p class="category">{{ item.category }}</p>
+            </a>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+    <div class="view-all">
+      <a href="/portfolio/" class="button">View Full Portfolio</a>
+    </div>
+  </section>
+
+  <!-- Instagram Feed -->
+  <section class="instagram-feed">
+    <h2>Latest from Instagram</h2>
+    <p>Follow <a href="https://instagram.com/hinamirza.art.design" target="_blank">@hinamirza.art.design</a></p>
+    <!-- Instagram embed widget will go here -->
+    <div id="instagram-widget"></div>
+  </section>
+
+  <!-- About Preview -->
+  <section class="about-preview">
+    <h2>About Hina</h2>
+    <p>Creating elegant, soft, painterly botanical artwork that transforms original designs into surface patterns and textile prints.</p>
+    <a href="/about/" class="button">Learn More</a>
+  </section>
+</div>

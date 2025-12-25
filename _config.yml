@@ -1,0 +1,66 @@
+# Site settings
+title: Hina Mirza
+tagline: Botanical Artwork & Design
+description: >-
+  Elegant, soft, painterly botanical artwork by Hina Mirza.
+  Breathe into nature with organic, expressive floral and botanical designs.
+baseurl: ""
+url: "https://hinamirza.co"
+
+# Author
+author:
+  name: Hina Mirza
+  email: hina@hinamirza.co
+  instagram: hinamirza.art.design
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Collections
+collections:
+  portfolio:
+    output: true
+    permalink: /portfolio/:title/
+  products:
+    output: true
+    permalink: /shop/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "portfolio"
+    values:
+      layout: "portfolio-item"
+  - scope:
+      path: ""
+      type: "products"
+    values:
+      layout: "product-item"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+# Exclude from processing
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/
+  - specs/
+  - .specify/
+  - .claude/
+  - .idea/
+  - .git/
+  - CLAUDE.md
+  - README.md

@@ -1,0 +1,53 @@
+---
+layout: default
+---
+<div class="product-item">
+  <div class="product-header">
+    <h1>{{ page.title }}</h1>
+    {% if page.price %}
+      <p class="price">{{ page.price }}</p>
+    {% endif %}
+  </div>
+
+  <div class="product-images">
+    {% if page.image %}
+      <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="featured-image">
+    {% endif %}
+
+    {% if page.gallery %}
+      <div class="image-gallery">
+        {% for image in page.gallery %}
+          <img src="{{ image | relative_url }}" alt="{{ page.title }}">
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="product-details">
+    <div class="description">
+      {{ content }}
+    </div>
+
+    {% if page.sizes or page.materials %}
+      <div class="product-info">
+        {% if page.sizes %}
+          <p><strong>Available Sizes:</strong> {{ page.sizes }}</p>
+        {% endif %}
+        {% if page.materials %}
+          <p><strong>Materials:</strong> {{ page.materials }}</p>
+        {% endif %}
+        {% if page.availability %}
+          <p><strong>Availability:</strong> {{ page.availability }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="product-actions">
+      <a href="{{ '/contact/?product=' | append: page.title | relative_url }}" class="button primary">Inquire About This Item</a>
+    </div>
+  </div>
+
+  <div class="product-nav">
+    <a href="{{ '/shop/' | relative_url }}" class="button">← Back to Shop</a>
+  </div>
+</div>
