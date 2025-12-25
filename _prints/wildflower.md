@@ -1,7 +1,7 @@
 ---
 layout: print-item
 title: "Wildflower Meadow"
-image: "/assets/images/prints/wildflower.jpg"
+image: "/assets/images/prints/wildflower.svg"
 price: "$40 - $105"
 sizes: "8x10, 11x14, 16x20 inches"
 material: "Fine art matte paper"

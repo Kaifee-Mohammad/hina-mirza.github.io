@@ -1,7 +1,7 @@
 ---
 layout: print-item
 title: "Protea Botanical Print"
-image: "/assets/images/prints/protea-print.jpg"
+image: "/assets/images/prints/protea-print.svg"
 price: "$45 - $120"
 sizes: "8x10, 11x14, 16x20, 24x36 inches"
 material: "Museum-quality giclée print on archival paper"

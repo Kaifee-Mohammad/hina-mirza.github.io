@@ -1,7 +1,7 @@
 ---
 layout: print-item
 title: "Rose Garden Study"
-image: "/assets/images/prints/rose-garden.jpg"
+image: "/assets/images/prints/rose-garden.svg"
 price: "$50 - $130"
 sizes: "11x14, 16x20, 24x36 inches"
 material: "Museum-quality giclée on textured watercolor paper"

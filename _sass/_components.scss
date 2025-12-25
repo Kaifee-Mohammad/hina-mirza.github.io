@@ -1,7 +1,23 @@
 // Compact layout - maximize space
 .hero.compact {
-  padding: $spacing-md 0;
-  margin-bottom: $spacing-md;
+  padding: $spacing-xs 0;
+  margin-bottom: $spacing-xs;
+  text-align: center;
+
+  .tagline {
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 3px;
+    margin-bottom: 4px;
+    color: lighten($text-color, 10%);
+    text-transform: uppercase;
+  }
+
+  .hero-description {
+    font-size: 0.875rem;
+    color: lighten($text-color, 25%);
+    font-weight: 300;
+  }
 }
 
 .page-header.compact {
@@ -11,11 +27,11 @@
 // Compact Gallery Grid - Small Thumbnails
 .gallery-compact {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: $spacing-xs;
-  max-width: 1400px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: $spacing-sm;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0 $spacing-sm $spacing-md;
+  padding: $spacing-md $spacing-lg $spacing-lg;
 }
 
 .gallery-item {

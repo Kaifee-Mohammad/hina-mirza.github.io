@@ -1,0 +1,70 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Uncomment below to enable local development mode
+# local_backend: true
+
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+collections:
+  # Portfolio Collection
+  - name: "portfolio"
+    label: "Portfolio"
+    folder: "_portfolio"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "portfolio-item"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Category", name: "category", widget: "select", options: ["Paintings", "Fabric", "Digital Art", "Mixed Media"]}
+      - {label: "Featured Image", name: "image", widget: "image"}
+      - {label: "Featured", name: "featured", widget: "boolean", default: true}
+      - {label: "Dimensions", name: "dimensions", widget: "string"}
+      - {label: "Materials", name: "materials", widget: "string"}
+      - {label: "Year", name: "year", widget: "number", value_type: "int"}
+      - {label: "Availability", name: "availability", widget: "select", options: ["Available", "Sold", "Private Collection", "Not for Sale"]}
+      - {label: "Description", name: "body", widget: "markdown"}
+
+  # Art Prints Collection
+  - name: "prints"
+    label: "Art Prints"
+    folder: "_prints"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "print-item"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Price Range", name: "price", widget: "string", hint: "e.g., $45 - $120"}
+      - {label: "Available Sizes", name: "sizes", widget: "string", hint: "e.g., 8x10, 11x14, 16x20 inches"}
+      - {label: "Material", name: "material", widget: "string", hint: "e.g., Museum-quality giclée print"}
+      - {label: "Description", name: "body", widget: "markdown"}
+
+  # Pages
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "About Page"
+        name: "about"
+        file: "about.md"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/about/"}
+          - {label: "Body", name: "body", widget: "markdown"}
+
+      - label: "Contact Page"
+        name: "contact"
+        file: "contact.md"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Permalink", name: "permalink", widget: "hidden", default: "/contact/"}
+          - {label: "Body", name: "body", widget: "markdown"}
+
+# Settings
+site_url: https://hinamirza.co
+display_url: https://hinamirza.co
+logo_url: https://hinamirza.co/assets/images/logo.png

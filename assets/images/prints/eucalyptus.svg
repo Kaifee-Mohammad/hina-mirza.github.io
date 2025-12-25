@@ -1,0 +1,53 @@
+<svg width="800" height="1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="eucalyptus-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5f7f5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e8ebe8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="1000" fill="url(#eucalyptus-bg)"/>
+
+  <!-- Left branch -->
+  <path d="M 300 150 Q 280 300 290 450 Q 295 600 300 750"
+        stroke="#7a9d7e" stroke-width="6" fill="none" opacity="0.6"/>
+
+  <!-- Left leaves -->
+  <ellipse cx="250" cy="200" rx="25" ry="45" fill="#8db491" opacity="0.7" transform="rotate(-25 250 200)"/>
+  <ellipse cx="260" cy="280" rx="28" ry="50" fill="#9dc2a1" opacity="0.7" transform="rotate(-15 260 280)"/>
+  <ellipse cx="245" cy="360" rx="26" ry="48" fill="#a5c5a9" opacity="0.7" transform="rotate(-30 245 360)"/>
+  <ellipse cx="270" cy="440" rx="27" ry="47" fill="#8db491" opacity="0.7" transform="rotate(-20 270 440)"/>
+  <ellipse cx="255" cy="520" rx="29" ry="52" fill="#9dc2a1" opacity="0.7" transform="rotate(-28 255 520)"/>
+  <ellipse cx="275" cy="600" rx="26" ry="46" fill="#a5c5a9" opacity="0.7" transform="rotate(-18 275 600)"/>
+  <ellipse cx="260" cy="680" rx="28" ry="49" fill="#8db491" opacity="0.7" transform="rotate(-24 260 680)"/>
+
+  <!-- Center branch -->
+  <path d="M 400 100 Q 400 300 400 500 Q 400 700 400 900"
+        stroke="#7a9d7e" stroke-width="7" fill="none" opacity="0.65"/>
+
+  <!-- Center leaves -->
+  <ellipse cx="350" cy="180" rx="30" ry="55" fill="#9dc2a1" opacity="0.75" transform="rotate(-35 350 180)"/>
+  <ellipse cx="450" cy="220" rx="32" ry="58" fill="#a5c5a9" opacity="0.75" transform="rotate(30 450 220)"/>
+  <ellipse cx="340" cy="320" rx="31" ry="56" fill="#8db491" opacity="0.75" transform="rotate(-40 340 320)"/>
+  <ellipse cx="460" cy="360" rx="30" ry="54" fill="#9dc2a1" opacity="0.75" transform="rotate(35 460 360)"/>
+  <ellipse cx="345" cy="480" rx="33" ry="60" fill="#a5c5a9" opacity="0.75" transform="rotate(-38 345 480)"/>
+  <ellipse cx="455" cy="520" rx="31" ry="57" fill="#8db491" opacity="0.75" transform="rotate(32 455 520)"/>
+  <ellipse cx="350" cy="640" rx="30" ry="55" fill="#9dc2a1" opacity="0.75" transform="rotate(-36 350 640)"/>
+  <ellipse cx="450" cy="680" rx="32" ry="58" fill="#a5c5a9" opacity="0.75" transform="rotate(34 450 680)"/>
+  <ellipse cx="360" cy="800" rx="31" ry="56" fill="#8db491" opacity="0.75" transform="rotate(-33 360 800)"/>
+
+  <!-- Right branch -->
+  <path d="M 500 180 Q 520 330 510 480 Q 505 630 500 780"
+        stroke="#7a9d7e" stroke-width="6" fill="none" opacity="0.6"/>
+
+  <!-- Right leaves -->
+  <ellipse cx="550" cy="240" rx="26" ry="47" fill="#9dc2a1" opacity="0.7" transform="rotate(22 550 240)"/>
+  <ellipse cx="535" cy="320" rx="28" ry="51" fill="#a5c5a9" opacity="0.7" transform="rotate(18 535 320)"/>
+  <ellipse cx="555" cy="400" rx="27" ry="49" fill="#8db491" opacity="0.7" transform="rotate(26 555 400)"/>
+  <ellipse cx="530" cy="480" rx="29" ry="53" fill="#9dc2a1" opacity="0.7" transform="rotate(20 530 480)"/>
+  <ellipse cx="545" cy="560" rx="28" ry="50" fill="#a5c5a9" opacity="0.7" transform="rotate(24 545 560)"/>
+  <ellipse cx="525" cy="640" rx="27" ry="48" fill="#8db491" opacity="0.7" transform="rotate(19 525 640)"/>
+  <ellipse cx="540" cy="720" rx="28" ry="51" fill="#9dc2a1" opacity="0.7" transform="rotate(23 540 720)"/>
+
+  <text x="400" y="970" font-family="'Libre Baskerville', serif" font-size="24" fill="#5a4a45" text-anchor="middle" opacity="0.5">Eucalyptus Branches</text>
+</svg>

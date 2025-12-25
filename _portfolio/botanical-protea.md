@@ -2,7 +2,7 @@
 layout: portfolio-item
 title: "Botanical Protea"
 category: "Paintings"
-image: "/assets/images/portfolio/protea-sample.jpg"
+image: "/assets/images/portfolio/protea-sample.svg"
 featured: true
 dimensions: "24 x 36 inches"
 materials: "Watercolor on paper"

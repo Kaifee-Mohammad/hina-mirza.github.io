@@ -2,7 +2,7 @@
 layout: portfolio-item
 title: "Floral Textile Pattern"
 category: "Fabric"
-image: "/assets/images/portfolio/fabric-sample.jpg"
+image: "/assets/images/portfolio/fabric-sample.svg"
 featured: true
 dimensions: "Repeating pattern"
 materials: "Digital design for textile printing"

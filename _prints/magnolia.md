@@ -1,7 +1,7 @@
 ---
 layout: print-item
 title: "Magnolia Blossom"
-image: "/assets/images/prints/magnolia.jpg"
+image: "/assets/images/prints/magnolia.svg"
 price: "$45 - $115"
 sizes: "8x10, 11x14, 16x20 inches"
 material: "Premium archival matte paper"

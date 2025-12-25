@@ -1,0 +1,48 @@
+<svg width="800" height="1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="floral-pattern" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
+      <!-- Small flowers -->
+      <circle cx="50" cy="50" r="20" fill="#d8c3be" opacity="0.8"/>
+      <circle cx="45" cy="45" r="8" fill="#e8ddd8" opacity="0.9"/>
+      <circle cx="55" cy="45" r="8" fill="#e8ddd8" opacity="0.9"/>
+      <circle cx="45" cy="55" r="8" fill="#e8ddd8" opacity="0.9"/>
+      <circle cx="55" cy="55" r="8" fill="#e8ddd8" opacity="0.9"/>
+      <circle cx="50" cy="50" r="6" fill="#c4a9a3"/>
+
+      <circle cx="150" cy="150" r="20" fill="#d8c3be" opacity="0.8"/>
+      <circle cx="145" cy="145" r="8" fill="#e8ddd8" opacity="0.9"/>
+      <circle cx="155" cy="145" r="8" fill="#e8ddd8" opacity="0.9"/>
+      <circle cx="145" cy="155" r="8" fill="#e8ddd8" opacity="0.9"/>
+      <circle cx="155" cy="155" r="8" fill="#e8ddd8" opacity="0.9"/>
+      <circle cx="150" cy="150" r="6" fill="#c4a9a3"/>
+
+      <!-- Leaves -->
+      <ellipse cx="100" cy="30" rx="12" ry="25" fill="#8db491" opacity="0.6" transform="rotate(30 100 30)"/>
+      <ellipse cx="180" cy="100" rx="12" ry="25" fill="#9dc2a1" opacity="0.6" transform="rotate(-20 180 100)"/>
+      <ellipse cx="20" cy="120" rx="12" ry="25" fill="#8db491" opacity="0.6" transform="rotate(45 20 120)"/>
+
+      <!-- Stems -->
+      <line x1="50" y1="70" x2="50" y2="100" stroke="#7a9d7e" stroke-width="2" opacity="0.5"/>
+      <line x1="150" y1="170" x2="150" y2="190" stroke="#7a9d7e" stroke-width="2" opacity="0.5"/>
+    </pattern>
+
+    <linearGradient id="fabric-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#faf8f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f0eae6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="1000" fill="url(#fabric-bg)"/>
+
+  <!-- Repeating pattern -->
+  <rect width="800" height="1000" fill="url(#floral-pattern)"/>
+
+  <!-- Overlay texture -->
+  <rect width="800" height="1000" fill="#ffffff" opacity="0.05"/>
+
+  <!-- Title -->
+  <rect x="0" y="850" width="800" height="150" fill="#ffffff" opacity="0.85"/>
+  <text x="400" y="910" font-family="'Libre Baskerville', serif" font-size="32" fill="#5a4a45" text-anchor="middle">Floral Textile Pattern</text>
+  <text x="400" y="950" font-family="Montserrat, sans-serif" font-size="18" fill="#7a6a65" text-anchor="middle" opacity="0.8">Digital Design • Repeating</text>
+</svg>

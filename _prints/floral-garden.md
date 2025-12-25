@@ -1,7 +1,7 @@
 ---
 layout: print-item
 title: "Floral Garden Collection"
-image: "/assets/images/prints/floral-garden.jpg"
+image: "/assets/images/prints/floral-garden.svg"
 price: "$40 - $110"
 sizes: "8x10, 11x14, 16x20 inches"
 material: "Premium matte archival paper"

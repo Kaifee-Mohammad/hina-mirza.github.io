@@ -1,7 +1,7 @@
 ---
 layout: print-item
 title: "Eucalyptus Branches"
-image: "/assets/images/prints/eucalyptus.jpg"
+image: "/assets/images/prints/eucalyptus.svg"
 price: "$35 - $95"
 sizes: "8x10, 11x14, 16x20 inches"
 material: "Smooth fine art paper"
