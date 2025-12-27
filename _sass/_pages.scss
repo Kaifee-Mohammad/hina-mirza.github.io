@@ -1,28 +1,50 @@
 .contact-page {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 $spacing-md;
+  padding: 0 $spacing-md $spacing-md;
+
+  .page-header.compact {
+    padding: $spacing-sm 0;
+    text-align: center;
+    margin-bottom: $spacing-md;
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0;
+    }
+  }
 
   .contact-content {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: $spacing-xl;
-    margin-top: $spacing-lg;
 
     @media (max-width: $tablet) {
       grid-template-columns: 1fr;
-      gap: $spacing-lg;
+      gap: $spacing-md;
     }
   }
 
   .contact-form {
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: $spacing-md;
+
+      @media (max-width: $mobile) {
+        grid-template-columns: 1fr;
+        gap: $spacing-sm;
+      }
+    }
+
     .form-group {
-      margin-bottom: $spacing-md;
+      margin-bottom: $spacing-sm;
 
       label {
         display: block;
         margin-bottom: $spacing-xs;
         font-weight: 600;
+        font-size: 0.875rem;
       }
 
       input[type="text"],
@@ -30,11 +52,11 @@
       select,
       textarea {
         width: 100%;
-        padding: $spacing-sm;
+        padding: $spacing-xs $spacing-sm;
         border: 1px solid $border-color;
         border-radius: 4px;
         font-family: $font-body;
-        font-size: 1rem;
+        font-size: 0.95rem;
         transition: border-color 0.3s;
 
         &:focus {
@@ -45,25 +67,49 @@
 
       textarea {
         resize: vertical;
-      }
-
-      input[type="checkbox"] {
-        margin-right: $spacing-xs;
+        min-height: 80px;
       }
     }
 
-    button[type="submit"] {
-      margin-top: $spacing-md;
+    .form-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: $spacing-sm;
+      flex-wrap: wrap;
+      gap: $spacing-sm;
+
+      .consent-label {
+        font-size: 0.85rem;
+        display: flex;
+        align-items: center;
+        gap: $spacing-xs;
+
+        input[type="checkbox"] {
+          margin: 0;
+        }
+      }
+
+      button {
+        margin: 0;
+      }
     }
   }
 
   .contact-info {
+    background: $light-gray;
+    padding: $spacing-md;
+    border-radius: 4px;
+    height: fit-content;
+
     h3 {
       margin-bottom: $spacing-md;
+      font-size: 1.25rem;
     }
 
     p {
       margin-bottom: $spacing-sm;
+      font-size: 0.95rem;
     }
   }
 }

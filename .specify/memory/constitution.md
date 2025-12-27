@@ -1,50 +1,82 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# Hina Mirza Portfolio Website Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Minimize Scrolling (NON-NEGOTIABLE)
+**Always strive to minimize vertical scrolling on all pages.**
+- Maximize visible content within the viewport
+- Use compact layouts and efficient spacing
+- Avoid unnecessary padding or whitespace
+- Content should fit within one screen when possible
+- Use horizontal space efficiently before adding vertical content
+- Test all pages to ensure minimal scrolling required
+- Mobile: Content must be accessible without excessive scrolling
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Visual Simplicity
+**Clean, elegant design that showcases artwork.**
+- Minimal UI elements that don't distract from art
+- Consistent color palette (peachy #d8c3be accent)
+- Professional typography (Libre Baskerville + Montserrat)
+- White space used intentionally, not excessively
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Mobile-First Responsive
+**Site must work beautifully on all devices.**
+- Design for mobile first, scale up
+- Touch-friendly interface elements
+- Images optimize for device size
+- Compact layouts adapt smoothly
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Performance First
+**Fast loading is essential.**
+- Optimize all images before uploading
+- Minimize external dependencies
+- Static site generation for speed
+- Lazy load images when appropriate
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. CMS Accessibility
+**Hina must be able to manage all content without code.**
+- WordPress-like interface (Netlify CMS)
+- Drag-drop image uploads
+- Visual editors for all content
+- Clear, simple workflows
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Design Standards
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### Layout Hierarchy
+1. Navigation: Minimal, always visible
+2. Content: Maximum viewport usage
+3. Footer: Compact, essential info only
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### Spacing Guidelines
+- Vertical padding: Use sparingly (xs: 8px, sm: 16px max for most sections)
+- Horizontal margins: Utilize full width where appropriate
+- Gallery gaps: Minimal (8-16px) to show more items
+- Hero sections: Compact, not full-screen
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### Image Standards
+- Thumbnails: Optimized size for quick loading
+- Gallery: Responsive grid (250px → 200px → 150px)
+- Lightbox: High quality on demand
+- Format: SVG for placeholders, JPG/PNG for photos
+
+## Development Workflow
+
+### Before Committing
+- [ ] Test locally at all breakpoints
+- [ ] Check for excessive scrolling
+- [ ] Run UI test suite (scripts/ui_test.sh)
+- [ ] Verify mobile responsiveness
+- [ ] Optimize any new images
+
+### Testing Requirements
+- All 17 UI tests must pass
+- Visual check on mobile device
+- Lightbox functionality verified
+- Form submissions tested
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution guides all design and development decisions.
+Any changes that introduce excessive scrolling must be justified and approved.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-12-27 | **Last Amended**: 2025-12-27
