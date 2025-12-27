@@ -1,0 +1,367 @@
+# Netlify CMS Configuration Contract: Instagram Feed Settings
+
+**Feature**: 002-instagram-feed
+**Date**: 2025-12-27
+**Purpose**: Define CMS schema for Instagram feed configuration
+
+## CMS Collection Configuration
+
+This configuration should be added to `admin/config.yml` in the repository root.
+
+```yaml
+# Instagram Feed Settings Collection
+collections:
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "Instagram Feed"
+        name: "instagram"
+        file: "_data/instagram.yml"
+        fields:
+          - label: "Instagram Username"
+            name: "username"
+            widget: "string"
+            required: true
+            pattern: ['^[a-zA-Z0-9_.]+$', "Must be alphanumeric with underscores/periods only"]
+            hint: "Your Instagram handle (without @). Example: hinamirza_art"
+
+          - label: "Display Feed"
+            name: "display_enabled"
+            widget: "boolean"
+            default: true
+            hint: "Toggle to show/hide Instagram feed on the website"
+
+          - label: "Number of Posts"
+            name: "posts_count"
+            widget: "number"
+            default: 12
+            value_type: "int"
+            min: 6
+            max: 24
+            step: 6
+            hint: "How many Instagram posts to display (6-24, multiples of 6 recommended for grid layout)"
+
+          - label: "Widget Service"
+            name: "widget_service"
+            widget: "select"
+            options:
+              - label: "Behold (Recommended)"
+                value: "behold"
+              - label: "Elfsight"
+                value: "elfsight"
+              - label: "LightWidget"
+                value: "lightwidget"
+            default: "behold"
+            hint: "Which Instagram embed service you've configured"
+
+          - label: "Widget Embed ID"
+            name: "widget_id"
+            widget: "string"
+            required: true
+            hint: "Unique widget ID from your embed service dashboard (e.g., from Behold, Elfsight, or LightWidget)"
+```
+
+## Field Specifications
+
+### username
+
+**Type**: String
+**Widget**: Text input
+**Required**: Yes
+**Validation**: Regex pattern `^[a-zA-Z0-9_.]+$`
+**Default**: None
+**Hint**: "Your Instagram handle (without @). Example: hinamirza_art"
+
+**Purpose**: Stores the Instagram username to display in the feed. Used for fallback link when JavaScript is disabled.
+
+**User Experience**:
+- User sees a single-line text input
+- Cannot submit without entering a value
+- Regex validation ensures only valid Instagram username characters
+- Error message shown if pattern doesn't match: "Must be alphanumeric with underscores/periods only"
+
+### display_enabled
+
+**Type**: Boolean
+**Widget**: Toggle switch
+**Required**: No (has default)
+**Default**: `true`
+**Hint**: "Toggle to show/hide Instagram feed on the website"
+
+**Purpose**: Global on/off switch for Instagram feed visibility. When `false`, feed section shows "Instagram feed is currently unavailable."
+
+**User Experience**:
+- User sees a visual toggle switch (on/off)
+- Green when enabled, gray when disabled
+- Immediately shows current state
+- No validation needed (boolean is always valid)
+
+### posts_count
+
+**Type**: Number (integer)
+**Widget**: Number input with stepper
+**Required**: No (has default)
+**Default**: `12`
+**Min**: `6`
+**Max**: `24`
+**Step**: `6`
+**Value Type**: Integer
+**Hint**: "How many Instagram posts to display (6-24, multiples of 6 recommended for grid layout)"
+
+**Purpose**: Controls how many posts the widget displays. Constrained to ensure "Minimize Scrolling" principle compliance.
+
+**User Experience**:
+- User sees number input with + / - buttons
+- Can only increment/decrement by 6 (optimal for 6-column grid)
+- Values: 6, 12, 18, 24
+- Cannot go below 6 or above 24
+- Validation error if user types invalid number
+
+**Rationale for Constraints**:
+- Min 6: Ensures meaningful content (1 row on desktop)
+- Max 24: Prevents excessive scrolling (4 rows maximum)
+- Step 6: Aligns with 6-column desktop grid (produces clean rows)
+
+### widget_service
+
+**Type**: Enum (select dropdown)
+**Widget**: Dropdown menu
+**Required**: No (has default)
+**Default**: `"behold"`
+**Options**:
+- `"behold"` - Behold (Recommended)
+- `"elfsight"` - Elfsight
+- `"lightwidget"` - LightWidget
+
+**Hint**: "Which Instagram embed service you've configured"
+
+**Purpose**: Determines which embed code template to use in `_includes/instagram-feed.html`. Different services have different embed code formats.
+
+**User Experience**:
+- User sees dropdown with 3 options
+- Behold shown as recommended
+- Clear labels for each service
+- Cannot enter custom value (enforces supported services)
+
+### widget_id
+
+**Type**: String
+**Widget**: Text input
+**Required**: Yes
+**Default**: None
+**Hint**: "Unique widget ID from your embed service dashboard (e.g., from Behold, Elfsight, or LightWidget)"
+
+**Purpose**: Stores the unique identifier for the configured widget from the chosen service. This ID is embedded in the JavaScript/iframe code.
+
+**User Experience**:
+- User sees single-line text input
+- Cannot submit without value
+- No format validation (different services use different ID formats)
+- Hint guides user to service dashboard to find ID
+
+**Example Values**:
+- Behold: `"abc123xyz"`
+- Elfsight: `"550e8400-e29b-41d4-a716-446655440000"`
+- LightWidget: `"a1b2c3d4e5f6"`
+
+## Output Data File
+
+**Path**: `_data/instagram.yml`
+**Format**: YAML
+
+**Example Output**:
+
+```yaml
+username: hinamirza_art
+display_enabled: true
+posts_count: 12
+widget_service: behold
+widget_id: abc123xyz
+```
+
+## Integration with Existing CMS
+
+### If `settings` collection already exists:
+
+Add the Instagram Feed file configuration to the existing `settings` collection:
+
+```yaml
+collections:
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      # ... existing settings files (e.g., site config, navigation) ...
+
+      # ADD THIS:
+      - label: "Instagram Feed"
+        name: "instagram"
+        file: "_data/instagram.yml"
+        fields:
+          # ... (fields as defined above) ...
+```
+
+### If `settings` collection doesn't exist:
+
+Create the entire `settings` collection as shown in the main configuration above.
+
+## CMS UI Flow
+
+### User Journey: Setting Up Instagram Feed
+
+1. **User logs into Netlify CMS** at `/admin/`
+2. **Clicks "Site Settings"** in left sidebar
+3. **Clicks "Instagram Feed"**
+4. **Sees form with 5 fields**:
+   - Instagram Username (empty text input)
+   - Display Feed (toggle, default ON)
+   - Number of Posts (number stepper, default 12)
+   - Widget Service (dropdown, default "Behold")
+   - Widget Embed ID (empty text input)
+5. **User fills in fields**:
+   - Types "hinamirza_art" in username
+   - Leaves display feed ON
+   - Keeps 12 posts
+   - Selects "Behold" (already selected)
+   - Pastes widget ID from Behold dashboard
+6. **User clicks "Save"**
+7. **CMS commits to Git** → Netlify rebuilds site
+8. **Instagram feed appears on site** at `/instagram/`
+
+### User Journey: Disabling Instagram Feed
+
+1. User logs into CMS
+2. Goes to Site Settings → Instagram Feed
+3. Toggles "Display Feed" to OFF
+4. Clicks "Save"
+5. Site rebuilds → Feed page shows "unavailable" message
+
+### User Journey: Changing Instagram Username
+
+1. User logs into CMS
+2. Goes to Site Settings → Instagram Feed
+3. Changes username from "old_name" to "new_name"
+4. Clicks "Save"
+5. Site rebuilds → Widget still works but NoScript fallback now points to @new_name
+
+## Validation Rules Summary
+
+| Field | Validation |
+|-------|------------|
+| `username` | Required, regex `^[a-zA-Z0-9_.]+$` |
+| `display_enabled` | None (boolean always valid) |
+| `posts_count` | Required, integer, min 6, max 24, step 6 |
+| `widget_service` | Required, one of: behold, elfsight, lightwidget |
+| `widget_id` | Required, non-empty string |
+
+## Error Messages
+
+**Username validation failure**:
+```
+"Must be alphanumeric with underscores/periods only"
+```
+
+**Posts count out of range**:
+```
+"Number of Posts must be between 6 and 24"
+```
+
+**Required field empty**:
+```
+"Instagram Username is required"
+"Widget Embed ID is required"
+```
+
+## Accessibility
+
+### CMS Form Accessibility
+
+- All fields have clear labels
+- Help text (hints) provide context
+- Form is keyboard-navigable
+- Screen reader friendly
+- Visual feedback for toggle states
+- Error messages announced to screen readers
+
+### Generated Data Accessibility
+
+The `_data/instagram.yml` file has no direct accessibility concerns (it's backend configuration). However, the Instagram page that uses this data follows WCAG 2.1 AA standards:
+
+- NoScript fallback provides text alternative
+- Semantic HTML structure
+- Keyboard navigation support (via widget service)
+- Color contrast compliance
+- Touch target sizing (mobile-first design)
+
+## Security Considerations
+
+### No Sensitive Data
+
+- **Widget ID**: Public (safe to commit to Git)
+- **Instagram Username**: Public
+- **No API tokens**: stored
+- **No credentials**: required
+
+### CMS Access Control
+
+- Only authenticated Netlify Identity users can edit
+- Changes tracked via Git commits
+- Audit trail: Git history shows who changed what when
+
+### Input Sanitization
+
+- Username regex prevents injection attacks
+- Widget ID is used only in controlled template contexts
+- Posts count bounded to safe range
+- Enum selection prevents arbitrary values for widget_service
+
+## Testing CMS Configuration
+
+### Manual Testing
+
+1. Log into CMS locally (http://localhost:4000/admin/)
+2. Navigate to Site Settings → Instagram Feed
+3. Verify all fields render correctly
+4. Test validation:
+   - Try invalid username (e.g., "@username")
+   - Try posts_count = 5 (should fail, min is 6)
+   - Try submitting with empty required fields
+5. Save valid configuration
+6. Check `_data/instagram.yml` generated correctly
+7. Build site, verify Instagram page uses config values
+
+### Automated Testing (UI Tests)
+
+```bash
+# Test configuration file exists
+test -f _data/instagram.yml && echo "✓ Instagram config exists" || echo "✗ Missing config"
+
+# Test configuration is valid YAML
+ruby -ryaml -e "YAML.load_file('_data/instagram.yml')" && echo "✓ Valid YAML" || echo "✗ Invalid YAML"
+
+# Test required fields present
+grep -q "username:" _data/instagram.yml && echo "✓ Has username" || echo "✗ Missing username"
+grep -q "widget_id:" _data/instagram.yml && echo "✓ Has widget_id" || echo "✗ Missing widget_id"
+```
+
+## Migration from Existing Setup
+
+If the site already has Instagram integration (e.g., hardcoded widget ID), migration steps:
+
+1. Note current Instagram username and widget ID
+2. Add CMS configuration to `admin/config.yml`
+3. Create initial `_data/instagram.yml` with current values
+4. Update `_includes/instagram-feed.html` to read from `site.data.instagram`
+5. Test locally
+6. Commit and deploy
+7. Admin can now manage via CMS
+
+## Summary
+
+**Configuration Complexity**: Low
+- **Fields**: 5
+- **Required Fields**: 3 (username, posts_count has default, widget_id)
+- **Validation Rules**: 3 (username regex, posts_count range, widget_id non-empty)
+- **User-Facing**: Simple form, clear labels, helpful hints
+- **Developer-Facing**: Clean YAML output, easy to template
+
+**Design Philosophy**: Provide just enough configuration for Hina to manage Instagram integration independently, while constraining values to ensure constitution compliance and prevent errors.
