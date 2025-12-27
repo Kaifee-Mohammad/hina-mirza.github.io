@@ -138,3 +138,79 @@
     border-top: 1px solid $border-color;
   }
 }
+
+// Instagram Page
+.instagram-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-md $spacing-md;
+
+  .page-header.compact {
+    padding: $spacing-sm 0;
+    text-align: center;
+    margin-bottom: $spacing-md;
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: $spacing-xs;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: $text-color;
+      opacity: 0.7;
+      margin: 0;
+    }
+  }
+
+  .instagram-content {
+    width: 100%;
+  }
+
+  .feed-disabled,
+  .no-js-message {
+    text-align: center;
+    padding: $spacing-lg;
+    background: $light-gray;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    color: $text-color;
+
+    a {
+      color: $primary-color;
+      text-decoration: underline;
+    }
+  }
+}
+
+// Instagram Feed Widget Wrapper
+.instagram-feed-wrapper {
+  width: 100%;
+
+  // Grid layout styling (applied to widget container)
+  .elfsight-app,
+  #behold-feed,
+  .lightwidget-widget {
+    width: 100%;
+    min-height: 400px; // Prevent layout shift while loading
+  }
+}
+
+// Mobile responsive
+@media (max-width: $tablet) {
+  .instagram-page {
+    .page-header.compact h1 {
+      font-size: 1.75rem;
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .instagram-page {
+    padding: 0 $spacing-sm $spacing-sm;
+
+    .page-header.compact h1 {
+      font-size: 1.5rem;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+# Instagram feed configuration
+# Managed via Netlify CMS at /admin/ → Site Settings → Instagram Feed
+
+username: "hinamirza_art"       # Instagram handle (without @)
+display_enabled: true            # Toggle feed visibility
+posts_count: 12                  # Number of posts to display
+widget_service: "elfsight"       # Using Elfsight (free tier)
+widget_id: "PLACEHOLDER"         # Replace with actual Elfsight widget ID

@@ -1,0 +1,29 @@
+<div class="instagram-feed-wrapper">
+  {% if site.data.instagram.widget_service == 'behold' %}
+    <!-- Behold embed -->
+    <div id="behold-feed" data-feed-id="{{ site.data.instagram.widget_id }}"></div>
+    <script src="https://behold.so/{{ site.data.instagram.widget_id }}/embed.js" async defer></script>
+
+  {% elsif site.data.instagram.widget_service == 'elfsight' %}
+    <!-- Elfsight embed (FREE TIER) -->
+    <div class="elfsight-app-{{ site.data.instagram.widget_id }}"></div>
+    <script src="https://apps.elfsight.com/p/platform.js" async defer></script>
+
+  {% elsif site.data.instagram.widget_service == 'lightwidget' %}
+    <!-- LightWidget embed -->
+    <iframe src="https://cdn.lightwidget.com/widgets/{{ site.data.instagram.widget_id }}.html"
+            scrolling="no"
+            allowtransparency="true"
+            class="lightwidget-widget"
+            style="width:100%;border:0;overflow:hidden;"></iframe>
+  {% endif %}
+
+  <noscript>
+    <p class="no-js-message">
+      Please enable JavaScript to view the Instagram feed, or
+      <a href="https://instagram.com/{{ site.data.instagram.username }}" target="_blank" rel="noopener">
+        visit @{{ site.data.instagram.username }} on Instagram
+      </a>
+    </p>
+  </noscript>
+</div>
