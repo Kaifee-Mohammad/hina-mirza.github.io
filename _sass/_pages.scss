@@ -8,6 +8,53 @@
     grid-template-columns: 2fr 1fr;
     gap: $spacing-xl;
     margin-top: $spacing-lg;
+
+    @media (max-width: $tablet) {
+      grid-template-columns: 1fr;
+      gap: $spacing-lg;
+    }
+  }
+
+  .contact-form {
+    .form-group {
+      margin-bottom: $spacing-md;
+
+      label {
+        display: block;
+        margin-bottom: $spacing-xs;
+        font-weight: 600;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      select,
+      textarea {
+        width: 100%;
+        padding: $spacing-sm;
+        border: 1px solid $border-color;
+        border-radius: 4px;
+        font-family: $font-body;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+
+        &:focus {
+          outline: none;
+          border-color: $primary-color;
+        }
+      }
+
+      textarea {
+        resize: vertical;
+      }
+
+      input[type="checkbox"] {
+        margin-right: $spacing-xs;
+      }
+    }
+
+    button[type="submit"] {
+      margin-top: $spacing-md;
+    }
   }
 
   .contact-info {
