@@ -115,26 +115,116 @@
 }
 
 .about-page {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 0 $spacing-md;
+  text-align: center;
+
+  .page-header {
+    padding: $spacing-lg 0 $spacing-md;
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0;
+    }
+  }
 
   .about-intro {
     margin-bottom: $spacing-lg;
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: $text-color;
+    }
+  }
+
+  .about-images {
+    margin: $spacing-xl 0;
+
+    .about-image-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: $spacing-md;
+      max-width: 800px;
+      margin: 0 auto;
+
+      @media (max-width: $tablet) {
+        grid-template-columns: 1fr;
+        gap: $spacing-sm;
+      }
+
+      .image-item {
+        overflow: hidden;
+        border-radius: 4px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          transition: $transition;
+
+          &:hover {
+            transform: scale(1.02);
+          }
+        }
+      }
+    }
   }
 
   .about-body {
-    margin-bottom: $spacing-lg;
+    margin-bottom: $spacing-xl;
 
-    h2 {
-      margin-top: $spacing-lg;
+    p {
+      font-size: 1rem;
+      line-height: 1.8;
       margin-bottom: $spacing-md;
+    }
+
+    .collaborate-section {
+      margin-top: $spacing-xl;
+      padding: $spacing-lg 0;
+
+      .collaborate-text {
+        font-size: 1.1rem;
+        margin-bottom: $spacing-md;
+        font-weight: 500;
+      }
+
+      .button {
+        display: inline-block;
+        padding: $spacing-sm $spacing-lg;
+        border: 2px solid $primary-color;
+        color: $text-color;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: $transition;
+        font-weight: 500;
+
+        &:hover {
+          background: $primary-color;
+          color: $background-color;
+        }
+      }
     }
   }
 
   .about-social {
     text-align: center;
-    padding: $spacing-lg 0;
+    padding: $spacing-md 0;
     border-top: 1px solid $border-color;
+
+    a {
+      color: $text-color;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: $transition;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
   }
 }
