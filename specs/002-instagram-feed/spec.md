@@ -1,6 +1,6 @@
 # Feature Specification: Instagram Live Feed Page
 
-**Feature Branch**: `001-instagram-feed`
+**Feature Branch**: `002-instagram-feed`
 **Created**: 2025-12-27
 **Status**: Draft
 **Input**: User description: "add a page to add instagram live feed on the website"
